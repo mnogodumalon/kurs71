@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --font-sans: var(--font-body);
+}
+
+:root {
+  --radius: 0.625rem;
+
+  /* === KURSVERWALTUNG DESIGN SYSTEM === */
+  /* Font */
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+
+  /* Core palette — oklch */
+  --background:           oklch(0.978 0.006 264);
+  --foreground:           oklch(0.18 0.02 264);
+  --card:                 oklch(1 0 0);
+  --card-foreground:      oklch(0.18 0.02 264);
+  --popover:              oklch(1 0 0);
+  --popover-foreground:   oklch(0.18 0.02 264);
+
+  /* Indigo primary */
+  --primary:              oklch(0.48 0.22 264);
+  --primary-foreground:   oklch(1 0 0);
+
+  --secondary:            oklch(0.94 0.01 264);
+  --secondary-foreground: oklch(0.35 0.05 264);
+
+  --muted:                oklch(0.96 0.005 264);
+  --muted-foreground:     oklch(0.52 0.04 264);
+
+  --accent:               oklch(0.94 0.04 264);
+  --accent-foreground:    oklch(0.38 0.12 264);
+
+  --destructive:          oklch(0.55 0.22 25);
+  --border:               oklch(0.9 0.01 264);
+  --input:                oklch(0.92 0.01 264);
+  --ring:                 oklch(0.48 0.22 264);
+
+  /* Charts */
+  --chart-1: oklch(0.48 0.22 264);
+  --chart-2: oklch(0.6 0.18 200);
+  --chart-3: oklch(0.65 0.15 160);
+  --chart-4: oklch(0.62 0.16 320);
+  --chart-5: oklch(0.68 0.14 80);
+
+  /* Sidebar — deep indigo */
+  --sidebar:                    oklch(0.23 0.06 264);
+  --sidebar-foreground:         oklch(0.88 0.02 264);
+  --sidebar-primary:            oklch(0.72 0.12 264);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent:             oklch(0.30 0.06 264);
+  --sidebar-accent-foreground:  oklch(0.93 0.015 264);
+  --sidebar-border:             oklch(0.32 0.05 264);
+  --sidebar-ring:               oklch(0.48 0.22 264);
+
+  /* Custom tokens */
+  --gradient-hero: linear-gradient(135deg, oklch(0.48 0.22 264), oklch(0.55 0.22 285));
+  --gradient-card: linear-gradient(160deg, oklch(1 0 0), oklch(0.974 0.008 264));
+  --gradient-stat-1: linear-gradient(135deg, oklch(0.48 0.22 264), oklch(0.52 0.24 280));
+  --gradient-stat-2: linear-gradient(135deg, oklch(0.55 0.20 200), oklch(0.58 0.18 215));
+  --gradient-stat-3: linear-gradient(135deg, oklch(0.58 0.18 160), oklch(0.62 0.16 175));
+  --gradient-stat-4: linear-gradient(135deg, oklch(0.58 0.20 320), oklch(0.62 0.18 335));
+  --shadow-elegant: 0 4px 24px -4px oklch(0.48 0.22 264 / 0.18);
+  --shadow-card:    0 1px 4px 0px oklch(0.18 0.02 264 / 0.06), 0 4px 16px -4px oklch(0.18 0.02 264 / 0.08);
+  --shadow-sidebar: 4px 0 24px -4px oklch(0.18 0.02 264 / 0.18);
+  --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* === CUSTOM UTILITY CLASSES === */
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Stat cards with gradient backgrounds */
+.stat-gradient-1 { background: var(--gradient-stat-1); }
+.stat-gradient-2 { background: var(--gradient-stat-2); }
+.stat-gradient-3 { background: var(--gradient-stat-3); }
+.stat-gradient-4 { background: var(--gradient-stat-4); }
+
+/* Hero gradient */
+.hero-gradient { background: var(--gradient-hero); }
+
+/* Elegant card style */
+.card-elegant {
+  background: var(--gradient-card);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+/* Badge variants */
+.badge-paid {
+  background: oklch(0.93 0.08 160);
+  color: oklch(0.35 0.15 160);
+  border: 1px solid oklch(0.85 0.10 160);
+}
+.badge-unpaid {
+  background: oklch(0.95 0.05 25);
+  color: oklch(0.45 0.18 25);
+  border: 1px solid oklch(0.88 0.08 25);
+}
+
+/* Sidebar nav item active state */
+.nav-item-active {
+  background: var(--sidebar-accent);
+  color: var(--sidebar-accent-foreground);
+}
+
+/* Table row hover */
+.table-row-hover:hover {
+  background: var(--accent);
+}
+
+/* Page header */
+.page-header-gradient {
+  background: linear-gradient(90deg, oklch(0.48 0.22 264 / 0.06), oklch(0.55 0.22 285 / 0.02));
+  border-bottom: 1px solid var(--border);
+}
